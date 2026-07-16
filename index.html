@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VAMK · Partner Network Watch</title>
+<style>
+  :root{
+    --ink:#16233A;
+    --ink-soft:#28374F;
+    --paper:#F6F4EE;
+    --card:#FFFFFF;
+    --teal:#2F6F76;
+    --teal-soft:#E4EEEE;
+    --amber:#D9A441;
+    --slate:#6B7280;
+    --line:#DAD6CB;
+  }
+  * { box-sizing: border-box; }
+  html, body{ margin: 0; padding: 0; }
+  body{
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+  .display{ font-family: 'Fraunces', Georgia, serif; }
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+
+  .header{
+    background: var(--ink);
+    color: var(--paper);
+    padding: 28px 32px 24px 32px;
+  }
+  .header-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .eyebrow{
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9FB3C8;
+    margin: 0 0 6px 0;
+  }
+  h1{
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .subtitle{
+    font-size: 13.5px;
+    color: #B8C4D2;
+    margin: 8px 0 0 0;
+    max-width: 540px;
+    line-height: 1.5;
+  }
+  .last-run{
+    font-size: 12px;
+    color: #8FA1B5;
+    text-align: right;
+  }
+
+  .signal-strip{
+    display: flex;
+    gap: 0;
+    margin-top: 22px;
+    border-top: 1px solid #2C3C55;
+    padding-top: 16px;
+    flex-wrap: wrap;
+  }
+  .signal-item{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px 16px 4px 0;
+    border-right: 1px solid #2C3C55;
+    margin-right: 16px;
+  }
+  .signal-item:last-child{ border-right: none; }
+  .signal-dot{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 1px solid #5A7089;
+    flex-shrink: 0;
+  }
+  .signal-label{
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #9FB3C8;
+    letter-spacing: 0.02em;
+  }
+
+  .body{
+    padding: 28px 32px 40px 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .card{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .card-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    cursor: pointer;
+    gap: 12px;
+  }
+  .card-head:hover{ background: #FBFAF7; }
+  .card-id{ display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .card-dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 1px solid var(--teal);
+    flex-shrink: 0;
+  }
+  .card-names{ min-width: 0; }
+  .card-acronym{
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .card-full{
+    font-size: 12.5px;
+    color: var(--slate);
+    margin: 2px 0 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card-meta{ text-align: right; flex-shrink: 0; }
+  .card-status{
+    font-size: 11.5px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--slate);
+  }
+  .card-chevron{
+    font-size: 12px;
+    color: var(--slate);
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+  .card.open .card-chevron{ transform: rotate(90deg); }
+  .card-body{
+    display: none;
+    padding: 0 18px 18px 18px;
+    border-top: 1px solid var(--line);
+  }
+  .card.open .card-body{ display: block; }
+
+  .info-section{ margin-top: 14px; }
+  .info-label{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    border-bottom: 1px solid var(--teal-soft);
+    padding-bottom: 4px;
+  }
+  .summary-text{
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 4px 0 0 0;
+    white-space: pre-wrap;
+  }
+  .summary-empty{
+    font-size: 13px;
+    color: var(--slate);
+    font-style: italic;
+    margin: 4px 0 0 0;
+  }
+  .card-link{
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--teal);
+    text-decoration: none;
+  }
+  .card-link:hover{ text-decoration: underline; }
+
+  .history-toggle{
+    font-size: 11.5px;
+    color: var(--slate);
+    background: none;
+    border: none;
+    padding: 8px 0 0 0;
+    cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+    text-decoration: underline;
+    display: block;
+  }
+  .history-list{
+    margin-top: 10px;
+    border-top: 1px dashed var(--line);
+    padding-top: 10px;
+  }
+  .history-item{
+    font-size: 12.5px;
+    color: var(--slate);
+    padding: 8px 0;
+    border-bottom: 1px solid #F0EEE6;
+  }
+  .history-item:last-child{ border-bottom: none; }
+  .history-date{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .history-sub{ font-size: 12px; color: var(--slate); margin-top: 2px; }
+  .history-sub strong{ color: var(--ink-soft); font-weight: 600; }
+
+  .footnote{
+    font-size: 11.5px;
+    color: var(--slate);
+    margin-top: 24px;
+    line-height: 1.6;
+  }
+  .load-error{
+    font-size: 13px;
+    color: #A6362F;
+    background: #FBEAE8;
+    border: 1px solid #F0C7C3;
+    border-radius: 3px;
+    padding: 12px 14px;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <p class="eyebrow">VAMK &middot; Partner Network Watch</p>
+        <h1 class="display">Network Signal Board</h1>
+        <p class="subtitle">A running check on the networks VAMK belongs to &mdash; open each entry for a plain-language digest of what's new, split into news and events.</p>
+      </div>
+      <div class="last-run" id="last-run"></div>
+    </div>
+    <div class="signal-strip" id="signal-strip"></div>
+  </div>
+
+  <div class="body">
+    <div id="cards"></div>
+    <div class="footnote">
+      This digest is generated periodically &mdash; not live &mdash; by asking Claude to search the web for recent activity on each network and summarise it. To refresh it, ask Claude to run the scan again and update <code>data.json</code> in this repository.
+    </div>
+  </div>
+
+<script>
+(function(){
+  const cardsEl = document.getElementById('cards');
+  const stripEl = document.getElementById('signal-strip');
+  const lastRunEl = document.getElementById('last-run');
+  let openCards = {};
+  let openHistory = {};
+  let networks = [];
+
+  function escapeHtml(s){
+    const d = document.createElement('div');
+    d.textContent = s == null ? '' : s;
+    return d.innerHTML;
+  }
+
+  function fmtDate(iso){
+    if(!iso) return '';
+    const d = new Date(iso + 'T00:00:00');
+    if(isNaN(d)) return iso;
+    return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  function renderSection(label, text){
+    const clean = (text || '').trim();
+    return '<div class="info-section">' +
+      '<div class="info-label">' + escapeHtml(label) + '</div>' +
+      (clean
+        ? '<div class="summary-text">' + escapeHtml(clean) + '</div>'
+        : '<div class="summary-empty">Nothing recent found.</div>') +
+      '</div>';
+  }
+
+  function latestScan(n){
+    return (n.scans && n.scans.length) ? n.scans[n.scans.length - 1] : null;
+  }
+
+  function render(){
+    stripEl.innerHTML = networks.map(function(n){
+      return '<div class="signal-item"><div class="signal-dot"></div>' +
+        '<div class="signal-label">' + escapeHtml(n.name) + '</div></div>';
+    }).join('');
+
+    cardsEl.innerHTML = networks.map(function(n){
+      const latest = latestScan(n);
+      const isOpen = !!openCards[n.id];
+      let bodyHtml = '';
+      if(latest){
+        bodyHtml += renderSection('News', latest.news);
+        bodyHtml += renderSection('Events', latest.events);
+      } else {
+        bodyHtml += '<div class="summary-empty">No scan recorded yet.</div>';
+      }
+      bodyHtml += '<a class="card-link" href="' + escapeHtml(n.url) + '" target="_blank" rel="noopener">' + escapeHtml(n.url) + '</a>';
+
+      const hist = (n.scans || []).slice(0, -1).reverse();
+      if(hist.length){
+        const histOpen = !!openHistory[n.id];
+        bodyHtml += '<button class="history-toggle" data-history="' + n.id + '">' +
+          (histOpen ? 'hide' : 'show') + ' earlier scans (' + hist.length + ')</button>';
+        if(histOpen){
+          bodyHtml += '<div class="history-list">' + hist.map(function(h){
+            return '<div class="history-item"><span class="history-date">' + fmtDate(h.date) + '</span>' +
+              '<div class="history-sub"><strong>News:</strong> ' + escapeHtml(h.news || '—') + '</div>' +
+              '<div class="history-sub"><strong>Events:</strong> ' + escapeHtml(h.events || '—') + '</div></div>';
+          }).join('') + '</div>';
+        }
+      }
+
+      return '<div class="card ' + (isOpen ? 'open' : '') + '" data-card="' + n.id + '">' +
+        '<div class="card-head" data-toggle="' + n.id + '">' +
+          '<div class="card-id">' +
+            '<div class="card-dot"></div>' +
+            '<div class="card-names">' +
+              '<p class="card-acronym">' + escapeHtml(n.name) + '</p>' +
+              '<p class="card-full">' + escapeHtml(n.full || '') + '</p>' +
+            '</div>' +
+          '</div>' +
+          '<div class="card-meta">' +
+            '<div class="card-status">' + (latest ? 'updated ' + fmtDate(latest.date) : 'no data') + '</div>' +
+          '</div>' +
+          '<div class="card-chevron">&#9656;</div>' +
+        '</div>' +
+        '<div class="card-body">' + bodyHtml + '</div>' +
+      '</div>';
+    }).join('');
+
+    cardsEl.querySelectorAll('[data-toggle]').forEach(function(el){
+      el.addEventListener('click', function(){
+        const id = el.getAttribute('data-toggle');
+        openCards[id] = !openCards[id];
+        render();
+      });
+    });
+    cardsEl.querySelectorAll('[data-history]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.stopPropagation();
+        const id = el.getAttribute('data-history');
+        openHistory[id] = !openHistory[id];
+        render();
+      });
+    });
+  }
+
+  fetch('./data.json', { cache: 'no-store' })
+    .then(function(res){
+      if(!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function(data){
+      networks = data.networks || [];
+      let mostRecent = null;
+      networks.forEach(function(n){
+        const latest = latestScan(n);
+        if(latest && (!mostRecent || latest.date > mostRecent)) mostRecent = latest.date;
+      });
+      lastRunEl.textContent = mostRecent ? ('Last updated ' + fmtDate(mostRecent)) : '';
+      render();
+    })
+    .catch(function(err){
+      cardsEl.innerHTML = '<div class="load-error">Could not load data.json: ' + escapeHtml(err.message) + '. Make sure data.json sits alongside index.html in this repository.</div>';
+    });
+})();
+</script>
+</body>
+</html>
