@@ -11,18 +11,39 @@
           "news": "EARMA opened its 2026 Mentorship Scheme, pairing ten mentors with ten mentees from the community; the mentee/mentor application window is open with a kick-off event tied to the programme and an outcome notification expected by mid-October. The EARMA Academy also opened pre-registration for its entry-level RM1 certification assessment, aimed at professionals with 0-2 years of experience.",
           "events": [
             {
-              "title": "EARMA General Assembly & Conference 2026",
-              "dateLabel": "May 5-7, 2026",
-              "startDate": "2026-05-05",
-              "mode": "in-person",
-              "location": "Utrecht, Netherlands"
-            },
-            {
-              "title": "EARMA Academy trainings & thematic-group webinars",
-              "dateLabel": "Ongoing through summer 2026",
-              "startDate": "2026-07-01",
+              "title": "Preparing for the Future of AI in Research Management (AI Thematic Group webinar)",
+              "dateLabel": "18 September 2026, 10:00-11:30 CEST",
+              "startDate": "2026-09-18",
               "mode": "online",
               "location": ""
+            },
+            {
+              "title": "Science Communication in Horizon Europe: From Proposal to Impact",
+              "dateLabel": "8 October 2026, 09:00-12:00 CEST",
+              "startDate": "2026-10-08",
+              "mode": "online",
+              "location": ""
+            },
+            {
+              "title": "Joining the Dots: The Collaborative Power of Research Management (BESTPRAC Thematic Group event)",
+              "dateLabel": "28-29 October 2026",
+              "startDate": "2026-10-28",
+              "mode": "in-person",
+              "location": "Split, Croatia"
+            },
+            {
+              "title": "From Overwhelmed to in Control: Mastering AI in Research Management (masterclass)",
+              "dateLabel": "4-5 November 2026",
+              "startDate": "2026-11-04",
+              "mode": "hybrid",
+              "location": ""
+            },
+            {
+              "title": "Shaping Research Impact Practice in a Changing Landscape (EARMAimpact Thematic Group event)",
+              "dateLabel": "24-25 November 2026",
+              "startDate": "2026-11-24",
+              "mode": "in-person",
+              "location": "Milan, Italy"
             }
           ]
         }
@@ -36,19 +57,26 @@
       "scans": [
         {
           "date": "2026-07-16",
-          "news": "On 13 July, ERRIN submitted formal input to the EU's call for evidence on a future Single Basic Act for Joint Undertakings, arguing that regional and local authorities should be recognised as strategic partners rather than mere implementers. ERRIN also contributed to the Commission's consultation on the Industrial Accelerator Act, and published its 2026 Annual Work Plans across its cluster working groups.",
+          "news": "On 13 July, ERRIN submitted formal input to the EU's call for evidence on a future Single Basic Act for Joint Undertakings, arguing that regional and local authorities should be recognised as strategic partners rather than mere implementers. ERRIN also contributed to the Commission's consultation on the Industrial Accelerator Act, and published its 2026 Annual Work Plans across its cluster working groups. Note: ERRIN's events calendar is very high-volume (hundreds of member and working-group meetings); this digest lists only the more flagship/cross-network items rather than every internal session.",
           "events": [
             {
-              "title": "Joint network response deadline: Ocean & Water R&I Strategy calls for evidence",
-              "dateLabel": "Internal deadline 24 July 2026 (EU consultation open until 2 August)",
-              "startDate": "2026-07-24",
-              "mode": "online",
-              "location": ""
+              "title": "Food Tech Innovations: Connecting Europe's Living Labs - final conference",
+              "dateLabel": "22 September 2026 (two-day event)",
+              "startDate": "2026-09-22",
+              "mode": "in-person",
+              "location": "Netherlands (Dutch agri-food region)"
             },
             {
-              "title": "Creative Skills Week 2026",
-              "dateLabel": "7-10 September 2026",
-              "startDate": "2026-09-07",
+              "title": "Annual I3 Instrument Forum 2026 - registration open",
+              "dateLabel": "1 October 2026",
+              "startDate": "2026-10-01",
+              "mode": "in-person",
+              "location": "Brussels, Belgium"
+            },
+            {
+              "title": "European Week of Regions and Cities 2026",
+              "dateLabel": "12-14 October 2026",
+              "startDate": "2026-10-12",
               "mode": "in-person",
               "location": "Brussels, Belgium"
             }
@@ -64,14 +92,14 @@
       "scans": [
         {
           "date": "2026-07-16",
-          "news": "ESEIA welcomed Vaasa University of Applied Sciences (VAMK) as a new member following recent member-acquisition meetings, expanding the Alliance's presence in the Nordic region. ESEIA also published quarterly updates on its EMERGE (Africa green energy transition) and INITIATE Horizon Europe projects.",
+          "news": "ESEIA welcomed Vaasa University of Applied Sciences (VAMK) as a new member following recent member-acquisition meetings, expanding the Alliance's presence in the Nordic region. ESEIA also published its 60th newsletter edition and quarterly updates on its EMERGE (Africa green energy transition) and INITIATE Horizon Europe projects.",
           "events": [
             {
-              "title": "7th ESEIA International Conference: Green Energy Solutions",
-              "dateLabel": "23-25 November 2026",
-              "startDate": "2026-11-23",
-              "mode": "in-person",
-              "location": "Lisbon, Portugal"
+              "title": "19th ESEIA Lecture Series: Energy System Modelling for Green Africa",
+              "dateLabel": "8 October 2026, 19:00-21:00 CET",
+              "startDate": "2026-10-08",
+              "mode": "online",
+              "location": ""
             },
             {
               "title": "Conference for Sustainable Energy (CSE 2026) - paper deadline extended to 31 July",
@@ -79,6 +107,13 @@
               "startDate": "2026-10-29",
               "mode": "in-person",
               "location": "Brasov, Romania"
+            },
+            {
+              "title": "7th ESEIA International Conference: Green Energy Solutions",
+              "dateLabel": "23-25 November 2026",
+              "startDate": "2026-11-23",
+              "mode": "in-person",
+              "location": "Lisbon, Portugal"
             }
           ]
         }
@@ -92,14 +127,14 @@
       "scans": [
         {
           "date": "2026-07-16",
-          "news": "EURASHE moved its newsletter to a quarterly schedule (January, April, July, October) and, together with partner higher-education associations, published proposed amendments to the next Erasmus+ Programme regulation (2028-2034), pushing to strengthen mobility and cooperation funding. The association also opened its new Brussels office, Applied Sciences House, in the European Quarter.",
+          "news": "EURASHE moved its newsletter to a quarterly schedule (January, April, July, October) and, together with partner higher-education associations, published proposed amendments to the next Erasmus+ Programme regulation (2028-2034), pushing to strengthen mobility and cooperation funding. The association also opened its new Brussels office, Applied Sciences House, in the European Quarter, and its 35th Annual Conference in Amsterdam (17-18 June) drew a record 250 participants.",
           "events": [
             {
-              "title": "EURASHE 35th Annual Conference (record 250 participants)",
-              "dateLabel": "June 2026",
-              "startDate": "2026-06-17",
+              "title": "Higher Education Transformation Week (showcasing Erasmus+ KA2 project results)",
+              "dateLabel": "October 2026 (exact dates to be confirmed)",
+              "startDate": "2026-10-01",
               "mode": "in-person",
-              "location": "Amsterdam, Netherlands"
+              "location": "Brussels, Belgium"
             },
             {
               "title": "EQAF 2026 - call for contributions open (quality assurance forum)",
@@ -120,21 +155,14 @@
       "scans": [
         {
           "date": "2026-07-16",
-          "news": "EUREGHA published its 2025 Activity Report, highlighting three new EU-funded projects launched during the year: ENKORE (circular healthcare), YARN (young cancer survivors) and PREDI-LYNCH (Lynch Syndrome prevention). The network also welcomed three new members and continued advocacy through the EU Health Coalition and Harnessing Talent Platform.",
+          "news": "EUREGHA published its 2025 Activity Report, highlighting three new EU-funded projects launched during the year: ENKORE (circular healthcare), YARN (young cancer survivors) and PREDI-LYNCH (Lynch Syndrome prevention). Notably, VAMK led a workshop session on crisis leadership and training at EUREGHA's Annual General Assembly 2026 in Bilbao (27-29 May), alongside sessions from Aarhus Kommune, JOGG and others.",
           "events": [
             {
-              "title": "Interregional Group on Health & Well-being - Summer meeting (climate & health)",
-              "dateLabel": "1 July 2026",
-              "startDate": "2026-07-01",
+              "title": "Next CoR Interregional Group on Health & Well-being meeting (autumn session, exact date not yet published)",
+              "dateLabel": "Date to be confirmed - check euregha.net/calendar closer to the time",
+              "startDate": "",
               "mode": "in-person",
               "location": "Committee of the Regions, Brussels"
-            },
-            {
-              "title": "European Health Management Conference 2026",
-              "dateLabel": "10-12 June 2026",
-              "startDate": "2026-06-10",
-              "mode": "in-person",
-              "location": "Barcelona, Spain"
             }
           ]
         }
@@ -148,16 +176,8 @@
       "scans": [
         {
           "date": "2026-07-16",
-          "news": "EVBB, as lead of the FuTourAlliance project, published a Request for Proposals for external evaluation services. VET4EU2, the joint VET-provider platform that includes EVBB, welcomed former EU Commissioner Ylva Johansson's appointment as chair of the European Commission's Skills High-Level Board.",
-          "events": [
-            {
-              "title": "EVBB Policy Camp 2026: Beyond the Bubble - VET, AI & the Future of EU Funding",
-              "dateLabel": "29 June - 3 July 2026",
-              "startDate": "2026-06-29",
-              "mode": "in-person",
-              "location": "Thessaloniki, Greece"
-            }
-          ]
+          "news": "EVBB, as lead of the FuTourAlliance project, published a Request for Proposals for external evaluation services. VET4EU2, the joint VET-provider platform that includes EVBB, welcomed former EU Commissioner Ylva Johansson's appointment as chair of the European Commission's Skills High-Level Board. No further upcoming EVBB-organised events are listed on their events page at this scan (Policy Camp 2026 already took place 29 June-3 July).",
+          "events": []
         }
       ]
     },
@@ -170,15 +190,7 @@
         {
           "date": "2026-07-16",
           "news": "EVTA ran a three-day CoVE Design Programme seminar in Granada, developed in response to growing member interest in the Erasmus+ Centres of Vocational Excellence funding line, covering the policy rationale, technical call requirements, and partner-matching for future proposals.",
-          "events": [
-            {
-              "title": "CoVE Design Programme seminar",
-              "dateLabel": "5-7 May 2026",
-              "startDate": "2026-05-05",
-              "mode": "in-person",
-              "location": "Granada, Spain"
-            }
-          ]
+          "events": []
         }
       ]
     }
