@@ -1,0 +1,95 @@
+{
+  "networks": [
+    {
+      "id": "earma",
+      "name": "EARMA",
+      "full": "European Association of Research Managers and Administrators",
+      "url": "https://earma.org/",
+      "scans": [
+        {
+          "date": "2026-07-16",
+          "news": "EARMA opened its 2026 Mentorship Scheme, pairing ten mentors with ten mentees from the community; the mentee/mentor application window is open with a kick-off event tied to the programme and an outcome notification expected by mid-October. The EARMA Academy also opened pre-registration for its entry-level RM1 certification assessment, aimed at professionals with 0-2 years of experience.",
+          "events": "The 2026 EARMA General Assembly and the largest EARMA Conference to date (over 1,800 attendees from 54 countries) took place May 5-7 in Utrecht, where the new EARMA Academy officially launched. Ongoing thematic-group webinars and Academy trainings continue through the summer."
+        }
+      ]
+    },
+    {
+      "id": "errin",
+      "name": "ERRIN",
+      "full": "European Regions Research and Innovation Network",
+      "url": "https://errin.eu/",
+      "scans": [
+        {
+          "date": "2026-07-16",
+          "news": "On 13 July, ERRIN submitted formal input to the EU's call for evidence on a future Single Basic Act for Joint Undertakings, arguing that regional and local authorities should be recognised as strategic partners rather than mere implementers. ERRIN also contributed to the Commission's consultation on the Industrial Accelerator Act, and published its 2026 Annual Work Plans across its cluster working groups.",
+          "events": "ERRIN's Blue Economy Working Group is coordinating a joint network response to EU calls for evidence on a future Ocean and Water R&I Strategy, open until 2 August (internal member deadline 24 July). ERRIN members are also preparing for Creative Skills Week in Brussels, 7-10 September 2026."
+        }
+      ]
+    },
+    {
+      "id": "eseia",
+      "name": "ESEIA",
+      "full": "European Sustainable Energy Innovation Alliance",
+      "url": "https://eseia.eu/",
+      "scans": [
+        {
+          "date": "2026-07-16",
+          "news": "ESEIA welcomed Vaasa University of Applied Sciences (VAMK) as a new member following recent member-acquisition meetings, expanding the Alliance's presence in the Nordic region. ESEIA also published quarterly updates on its EMERGE (Africa green energy transition) and INITIATE Horizon Europe projects.",
+          "events": "The 7th ESEIA International Conference on Green Energy Solutions will be held in Lisbon, 23-25 November 2026, with ESEIA President Brian Norton confirmed as a keynote speaker. The Conference for Sustainable Energy (CSE 2026) in Brasov, Romania has extended its paper-submission deadline to 31 July ahead of the 29-31 October event."
+        }
+      ]
+    },
+    {
+      "id": "eurashe",
+      "name": "EURASHE",
+      "full": "European Association of Institutions in Higher Education",
+      "url": "https://www.eurashe.eu/",
+      "scans": [
+        {
+          "date": "2026-07-16",
+          "news": "EURASHE moved its newsletter to a quarterly schedule (January, April, July, October) and, together with partner higher-education associations, published proposed amendments to the next Erasmus+ Programme regulation (2028-2034), pushing to strengthen mobility and cooperation funding. The association also opened its new Brussels office, Applied Sciences House, in the European Quarter.",
+          "events": "EURASHE's 35th Annual Conference took place in Amsterdam in June with a record 250 participants. The call for contributions to EQAF 2026, the quality-assurance forum themed around skills and entrepreneurship, is currently open."
+        }
+      ]
+    },
+    {
+      "id": "euregha",
+      "name": "EUREGHA",
+      "full": "European Regional and Local Health Authorities",
+      "url": "https://www.euregha.net/",
+      "scans": [
+        {
+          "date": "2026-07-16",
+          "news": "EUREGHA published its 2025 Activity Report, highlighting three new EU-funded projects launched during the year: ENKORE (circular healthcare), YARN (young cancer survivors) and PREDI-LYNCH (Lynch Syndrome prevention). The network also welcomed three new members and continued advocacy through the EU Health Coalition and Harnessing Talent Platform.",
+          "events": "The Interregional Group on Health and Well-being at the Committee of the Regions, for which EUREGHA acts as secretariat, held a summer meeting on 1 July on climate and health implementation. EUREGHA also participated in the European Health Management Conference in Barcelona, 10-12 June."
+        }
+      ]
+    },
+    {
+      "id": "evbb",
+      "name": "EVBB",
+      "full": "European Association of Institutes for Vocational Training",
+      "url": "https://evbb.eu/",
+      "scans": [
+        {
+          "date": "2026-07-16",
+          "news": "EVBB, as lead of the FuTourAlliance project, published a Request for Proposals for external evaluation services. VET4EU2, the joint VET-provider platform that includes EVBB, welcomed former EU Commissioner Ylva Johansson's appointment as chair of the European Commission's Skills High-Level Board.",
+          "events": "The EVBB Policy Camp 2026, themed \"Beyond the Bubble: VET, AI & the Future of EU Funding,\" ran 29 June - 3 July in Thessaloniki, Greece."
+        }
+      ]
+    },
+    {
+      "id": "evta",
+      "name": "EVTA",
+      "full": "European Vocational Training Association",
+      "url": "https://www.evta.eu/",
+      "scans": [
+        {
+          "date": "2026-07-16",
+          "news": "EVTA ran a three-day CoVE Design Programme seminar in Granada, developed in response to growing member interest in the Erasmus+ Centres of Vocational Excellence funding line, covering the policy rationale, technical call requirements, and partner-matching for future proposals.",
+          "events": "No further EVTA-specific events beyond the Granada seminar (5-7 May) turned up in this scan window; worth checking evta.eu directly for newly posted listings."
+        }
+      ]
+    }
+  ]
+}
