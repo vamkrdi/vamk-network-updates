@@ -13,7 +13,9 @@
     --teal:#2F6F76;
     --teal-soft:#E4EEEE;
     --amber:#D9A441;
+    --amber-soft:#FBF0DA;
     --slate:#6B7280;
+    --slate-soft:#EEF0F2;
     --line:#DAD6CB;
   }
   * { box-sizing: border-box; }
@@ -164,7 +166,7 @@
   }
   .card.open .card-body{ display: block; }
 
-  .info-section{ margin-top: 14px; }
+  .info-section{ margin-top: 16px; }
   .info-label{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 10.5px;
@@ -173,23 +175,71 @@
     color: var(--teal);
     border-bottom: 1px solid var(--teal-soft);
     padding-bottom: 4px;
+    display: block;
   }
   .summary-text{
     font-size: 13.5px;
     line-height: 1.6;
     color: var(--ink-soft);
-    margin: 4px 0 0 0;
+    margin: 6px 0 0 0;
     white-space: pre-wrap;
   }
   .summary-empty{
     font-size: 13px;
     color: var(--slate);
     font-style: italic;
-    margin: 4px 0 0 0;
+    margin: 6px 0 0 0;
   }
+
+  /* Structured event rows */
+  .event-list{ margin: 8px 0 0 0; padding: 0; list-style: none; }
+  .event-row{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid #F0EEE6;
+  }
+  .event-row:last-child{ border-bottom: none; }
+  .event-mode{
+    flex-shrink: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+  .event-mode.in-person{ background: var(--teal-soft); color: var(--teal); }
+  .event-mode.online{ background: var(--slate-soft); color: var(--slate); }
+  .event-mode.hybrid{ background: var(--amber-soft); color: #A87A2A; }
+  .event-details{ min-width: 0; }
+  .event-title{
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    font-weight: 500;
+  }
+  .event-meta{
+    font-size: 12px;
+    color: var(--slate);
+    margin-top: 2px;
+  }
+  .event-upcoming-tag{
+    display: inline-block;
+    margin-left: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
   .card-link{
     display: inline-block;
-    margin-top: 14px;
+    margin-top: 16px;
     font-size: 12px;
     color: var(--teal);
     text-decoration: none;
@@ -229,12 +279,6 @@
   .history-sub{ font-size: 12px; color: var(--slate); margin-top: 2px; }
   .history-sub strong{ color: var(--ink-soft); font-weight: 600; }
 
-  .footnote{
-    font-size: 11.5px;
-    color: var(--slate);
-    margin-top: 24px;
-    line-height: 1.6;
-  }
   .load-error{
     font-size: 13px;
     color: #A6362F;
@@ -260,9 +304,6 @@
 
   <div class="body">
     <div id="cards"></div>
-    <div class="footnote">
-      This digest is generated periodically &mdash; not live &mdash; by asking Claude to search the web for recent activity on each network and summarise it. To refresh it, ask Claude to run the scan again and update <code>data.json</code> in this repository.
-    </div>
   </div>
 
 <script>
@@ -273,6 +314,7 @@
   let openCards = {};
   let openHistory = {};
   let networks = [];
+  const today = new Date().toISOString().slice(0, 10);
 
   function escapeHtml(s){
     const d = document.createElement('div');
@@ -287,14 +329,46 @@
     return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
   }
 
-  function renderSection(label, text){
+  function renderTextSection(label, text){
     const clean = (text || '').trim();
     return '<div class="info-section">' +
-      '<div class="info-label">' + escapeHtml(label) + '</div>' +
+      '<span class="info-label">' + escapeHtml(label) + '</span>' +
       (clean
         ? '<div class="summary-text">' + escapeHtml(clean) + '</div>'
         : '<div class="summary-empty">Nothing recent found.</div>') +
       '</div>';
+  }
+
+  function modeLabel(mode){
+    if(mode === 'in-person') return 'In-person';
+    if(mode === 'online') return 'Online';
+    if(mode === 'hybrid') return 'Hybrid';
+    return mode || '';
+  }
+
+  function renderEventsSection(events){
+    const list = Array.isArray(events) ? events : [];
+    let inner;
+    if(!list.length){
+      inner = '<div class="summary-empty">No upcoming events found.</div>';
+    } else {
+      inner = '<ul class="event-list">' + list.map(function(ev){
+        const mode = (ev.mode || '').toLowerCase();
+        const modeCls = ['in-person', 'online', 'hybrid'].includes(mode) ? mode : 'online';
+        const isUpcoming = ev.startDate && ev.startDate >= today;
+        const metaBits = [ev.dateLabel, ev.location].filter(Boolean).join(' · ');
+        return '<li class="event-row">' +
+          '<span class="event-mode ' + modeCls + '">' + escapeHtml(modeLabel(mode)) + '</span>' +
+          '<div class="event-details">' +
+            '<div class="event-title">' + escapeHtml(ev.title || '') +
+              (isUpcoming ? '<span class="event-upcoming-tag">Upcoming</span>' : '') +
+            '</div>' +
+            (metaBits ? '<div class="event-meta">' + escapeHtml(metaBits) + '</div>' : '') +
+          '</div>' +
+        '</li>';
+      }).join('') + '</ul>';
+    }
+    return '<div class="info-section"><span class="info-label">Events</span>' + inner + '</div>';
   }
 
   function latestScan(n){
@@ -312,8 +386,8 @@
       const isOpen = !!openCards[n.id];
       let bodyHtml = '';
       if(latest){
-        bodyHtml += renderSection('News', latest.news);
-        bodyHtml += renderSection('Events', latest.events);
+        bodyHtml += renderTextSection('News', latest.news);
+        bodyHtml += renderEventsSection(latest.events);
       } else {
         bodyHtml += '<div class="summary-empty">No scan recorded yet.</div>';
       }
@@ -326,9 +400,11 @@
           (histOpen ? 'hide' : 'show') + ' earlier scans (' + hist.length + ')</button>';
         if(histOpen){
           bodyHtml += '<div class="history-list">' + hist.map(function(h){
+            const evCount = Array.isArray(h.events) ? h.events.length : 0;
+            const evSummary = evCount ? (evCount + ' event(s) recorded') : 'No events recorded';
             return '<div class="history-item"><span class="history-date">' + fmtDate(h.date) + '</span>' +
               '<div class="history-sub"><strong>News:</strong> ' + escapeHtml(h.news || '—') + '</div>' +
-              '<div class="history-sub"><strong>Events:</strong> ' + escapeHtml(h.events || '—') + '</div></div>';
+              '<div class="history-sub"><strong>Events:</strong> ' + escapeHtml(evSummary) + '</div></div>';
           }).join('') + '</div>';
         }
       }
